@@ -1,0 +1,340 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>المتجر الإلكتروني</title>
+  <style>
+  :root {
+  --bg: linear-gradient(135deg, #eef2ff, #f8fafc);
+  --card: #ffffff;
+  --accent: #6366f1;        
+  --accent-dark: #4f46e5;
+  --text: #111827;
+  --muted: #6b7280;
+  --radius: 18px;
+  --shadow: 0 10px 30px rgba(99,102,241,0.15);
+  --whatsapp: #22c55e;
+  --border: #e5e7eb;
+}
+
+
+  body {
+  margin: 0;
+  font-family: "Cairo", "Segoe UI", Tahoma, sans-serif;
+  background: var(--bg);
+  background-attachment: fixed;
+  color: var(--text);
+}
+
+
+  header {
+  background: rgba(255,255,255,0.8);
+  backdrop-filter: blur(10px);
+  box-shadow: var(--shadow);
+  padding: 20px 10px;
+  text-align: center;
+  position: sticky;
+  top: 0;
+  z-index: 100;
+}
+
+
+    h1 {
+      margin: 0;
+      color: var(--accent);
+      font-size: 28px;
+      letter-spacing: 1px;
+    }
+
+    .search-box {
+      margin-top: 12px;
+    }
+
+    input[type="text"] {
+      width: 80%;
+      max-width: 450px;
+      padding: 12px 15px;
+      border: 1px solid #ddd;
+      border-radius: var(--radius);
+      font-size: 16px;
+      outline: none;
+      transition: 0.3s;
+    }
+
+    input[type="text"]:focus {
+      border-color: var(--accent);
+      box-shadow: 0 0 8px rgba(0,120,255,0.2);
+    }
+
+    .container {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+      gap: 25px;
+      padding: 40px 20px;
+      max-width: 1200px;
+      margin: auto;
+    }
+
+  .card {
+  background: var(--card);
+  border-radius: var(--radius);
+  box-shadow: var(--shadow);
+  overflow: hidden;
+  transition: all 0.3s ease;
+  border: 1px solid rgba(99,102,241,0.1);
+}
+
+.card:hover {
+  transform: translateY(-8px);
+  box-shadow: 0 15px 40px rgba(99,102,241,0.25);
+}
+
+  
+    .image-container {
+      overflow: hidden;
+      position: relative;
+      height: 200px;
+      background: #fff;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      border-bottom: 1px solid #eee;
+    }
+
+    .card img {
+      width: 100%;
+      height: 100%;
+      object-fit: contain;
+      transition: transform 0.4s ease;
+      background-color: #fff;
+      border: 2px solid var(--border); 
+      border-radius: 12px;
+      box-shadow: 0 2px 8px rgba(0,0,0,0.05);
+    }
+
+    .card:hover img {
+      transform: scale(1.05);
+    }
+
+    .info {
+      padding: 15px 18px 20px;
+    }
+
+    .info h2 {
+      font-size: 18px;
+      margin: 0;
+      color: var(--accent);
+      font-weight: 600;
+      line-height: 1.4;
+    }
+
+    .price {
+      color: var(--text);
+      font-weight: bold;
+      margin: 8px 0;
+      font-size: 15px;
+    }
+
+    .student, .contact {
+      color: var(--muted);
+      font-size: 13px;
+      margin: 3px 0;
+    }
+
+.whatsapp-btn {
+  display: inline-block;
+  margin-top: 10px;
+  background: linear-gradient(135deg, #22c55e, #16a34a);
+  color: #fff;
+  padding: 10px 18px;
+  border-radius: 30px;
+  text-decoration: none;
+  font-weight: 600;
+  font-size: 14px;
+  transition: all 0.3s ease;
+  box-shadow: 0 6px 15px rgba(34,197,94,0.3);
+}
+
+.whatsapp-btn:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 10px 25px rgba(34,197,94,0.5);
+}
+
+
+    footer {
+      text-align: center;
+      padding: 20px;
+      color: var(--muted);
+      background: var(--card);
+      border-top: 1px solid #e5e7eb;
+      font-size: 14px;
+    }
+
+    @media (max-width: 600px) {
+      h1 { font-size: 22px; }
+      input[type="text"] { width: 95%; }
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <h1>متجر مدارس ابن رشد جازان</h1>
+    <div class="search-box">
+      <input type="text" id="searchInput" placeholder="ابحث عن منتج..." onkeyup="searchProducts()">
+    </div>
+  </header>
+
+  <div class="container" id="productContainer">
+    <!-- منتج 1 -->
+    <div class="card">
+      <div class="image-container">
+        <img src="musa.jpeg" alt="منتج 1">
+      </div>
+      <div class="info">
+        <h2>ثوب أسود </h2>
+        <div class="price">السعر: 35 ريال</div>
+        <div class="student">الطالب: موسى سويدي</div>
+        <div class="contact">رقم التواصل: 0505768821</div>
+        <a class="whatsapp-btn" href="https://wa.me/966505768821?text=مرحباً، أود الاستفسار عن التيشيرت الأسود" target="_blank">تواصل عبر واتساب</a>
+      </div>
+    </div>
+
+    <!-- منتج 2 -->
+    <div class="card">
+      <div class="image-container">
+        <img src="t4.jpg" alt="منتج 2">
+      </div>
+      <div class="info">
+        <h2>تيشيرت أخضر</h2>
+        <div class="price">السعر: 120 ريال</div>
+        <div class="student">الطالب: مهند صلوي</div>
+        <div class="contact">رقم التواصل: 0501871284</div>
+        <a class="whatsapp-btn" href="https://wa.me/966555555555?text=مرحباً، أود الاستفسار عن التيشيرت الأخضر" target="_blank">تواصل عبر واتساب</a>
+      </div>
+    </div>
+
+    <!-- منتج 3 -->
+    <div class="card">
+      <div class="image-container">
+        <img src="t5.jpg" alt="منتج 3">
+      </div>
+      <div class="info">
+        <h2>تيشيرت أسود</h2>
+        <div class="price">السعر: 80 ريال</div>
+        <div class="student">الطالب: عبدالعزيز</div>
+        <div class="contact">رقم التواصل: 0566666666</div>
+        <a class="whatsapp-btn" href="https://wa.me/966566666666?text=مرحباً، أود الاستفسار عن التيشيرت الأبيض" target="_blank">تواصل عبر واتساب</a>
+      </div>
+    </div>
+
+
+
+
+
+
+
+
+
+ <!-- منتج 1 -->
+    <div class="card">
+      <div class="image-container">
+        <img src="t3.jpg" alt="منتج 1">
+      </div>
+      <div class="info">
+        <h2>تيشيرت أبيض</h2>
+        <div class="price">السعر: 35 ريال</div>
+        <div class="student">الطالب: محمد</div>
+        <div class="contact">رقم التواصل: 0500000000</div>
+        <a class="whatsapp-btn" href="https://wa.me/966500000000?text=مرحباً، أود الاستفسار عن التيشيرت الأسود" target="_blank">تواصل عبر واتساب</a>
+      </div>
+    </div>
+
+    <!-- منتج 2 -->
+    <div class="card">
+      <div class="image-container">
+        <img src="t4.jpg" alt="منتج 2">
+      </div>
+      <div class="info">
+        <h2>تيشيرت أخضر</h2>
+        <div class="price">السعر: 120 ريال</div>
+        <div class="student">الطالب: مهند صلوي</div>
+        <div class="contact">رقم التواصل: 0501871284</div>
+        <a class="whatsapp-btn" href="https://wa.me/966555555555?text=مرحباً، أود الاستفسار عن التيشيرت الأخضر" target="_blank">تواصل عبر واتساب</a>
+      </div>
+    </div>
+
+    <!-- منتج 3 -->
+    <div class="card">
+      <div class="image-container">
+        <img src="t5.jpg" alt="منتج 3">
+      </div>
+      <div class="info">
+        <h2>تيشيرت أسود</h2>
+        <div class="price">السعر: 80 ريال</div>
+        <div class="student">الطالب: عبدالعزيز</div>
+        <div class="contact">رقم التواصل: 0566666666</div>
+        <a class="whatsapp-btn" href="https://wa.me/966566666666?text=مرحباً، أود الاستفسار عن التيشيرت الأبيض" target="_blank">تواصل عبر واتساب</a>
+      </div>
+    </div>
+
+
+
+
+ <!-- منتج 1 -->
+    <div class="card">
+      <div class="image-container">
+        <img src="t3.jpg" alt="منتج 1">
+      </div>
+      <div class="info">
+        <h2>تيشيرت أبيض</h2>
+        <div class="price">السعر: 35 ريال</div>
+        <div class="student">الطالب: محمد</div>
+        <div class="contact">رقم التواصل: 0500000000</div>
+        <a class="whatsapp-btn" href="https://wa.me/966500000000?text=مرحباً، أود الاستفسار عن التيشيرت الأسود" target="_blank">تواصل عبر واتساب</a>
+      </div>
+    </div>
+
+    <!-- منتج 2 -->
+    <div class="card">
+      <div class="image-container">
+        <img src="t4.jpg" alt="منتج 2">
+      </div>
+      <div class="info">
+        <h2>تيشيرت أخضر</h2>
+        <div class="price">السعر: 120 ريال</div>
+        <div class="student">الطالب: مهند صلوي</div>
+        <div class="contact">رقم التواصل: 0501871284</div>
+        <a class="whatsapp-btn" href="https://wa.me/966555555555?text=مرحباً، أود الاستفسار عن التيشيرت الأخضر" target="_blank">تواصل عبر واتساب</a>
+      </div>
+    </div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+  </div>
+
+  <footer>مطور الموقع أ. مهند صلوي</footer>
+
+  <script>
+    function searchProducts() {
+      const input = document.getElementById('searchInput').value.toLowerCase();
+      const cards = document.querySelectorAll('.card');
+      
+      cards.forEach(card => {
+        const name = card.querySelector('h2').textContent.toLowerCase();
+        card.style.display = name.includes(input) ? 'block' : 'none';
+      });
+    }
+  </script>
+</body>
+</html>
